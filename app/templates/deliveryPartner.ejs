@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<body style="background:#f4f6f8;padding:20px;font-family:Arial">
+
+  <div style="
+    max-width:600px;
+    margin:auto;
+    background:#ffffff;
+    border-radius:8px;
+    overflow:hidden;
+  ">
+
+
+<div style="
+  background:#28a745;
+  color:white;
+  padding:18px;
+  text-align:center;
+  font-size:22px;
+">
+  Delivery Partner Assigned 🚚
+</div>
+
+
+<div style="padding:20px;color:#555">
+
+  <p>Hello <strong><%= name %></strong>,</p>
+
+  <p>
+    Good news! A delivery partner has been assigned to your order and will be delivering it soon.
+  </p>
+
+  <p><strong>Order ID:</strong> <%= orderId %></p>
+  <p><strong>Total Amount:</strong> ₹<%= totalAmount %></p>
+
+  <hr style="border:none;border-top:1px solid #eee;margin:20px 0" />
+
+  <p><strong>Delivery Partner Details:</strong></p>
+
+  <ul style="list-style:none;padding:0">
+    <li><strong>Name:</strong> <%= partnerName %></li>
+    <li><strong>Contact Number:</strong> <%= partnerPhone %></li>
+  </ul>
+
+  <p style="margin-top:20px">
+    You may contact the delivery partner if needed for smooth delivery coordination.
+  </p>
+
+  <p>
+    Thank you for shopping with <strong>Subsify</strong> 💚
+  </p>
+
+</div>
+
+
+<div style="
+  text-align:center;
+  padding:12px;
+  font-size:12px;
+  color:#999;
+  background:#f9f9f9;
+">
+  © 2025 Subsify. All rights reserved.
+</div>
+
+
+  </div>
+
+</body>
+</html>
