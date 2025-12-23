@@ -29,6 +29,6 @@ setupRoutes(app);
 mediaSetup(app);
 app.use("/media", express.static(path.join(process.cwd(), "uploads")));
 
-app.listen(PORT, HOST, () => {
-  console.log(`server is running on http://${HOST}:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
