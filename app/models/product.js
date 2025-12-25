@@ -9,7 +9,7 @@ const productSchema =new mongoose.Schema({
     description:{type:String},
     // store:{type:mongoose.Schema.Types.ObjectId,ref:"Store",required:true},
     store:{type:String},
-    in_stock:{type:Boolean,required:true},
+    in_stock:{type:Boolean},
     subscription_available:{type:Boolean},
     expire_date:{type:String,required:true},
     // subscription_frequency:{type:String,enum:["daily","alternate_day","weekend_only","weekly"],default:"daily"},
