@@ -14,7 +14,7 @@ const HOST = process.env.HOSTNAME || "0.0.0.0";
 app.use(
   cors({
     origin: ["http://localhost:5173",
-      "http://192.168.0.128:5173"
+     "https://admin-pannel-subsify.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
