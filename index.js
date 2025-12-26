@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: ["http://localhost:5173",
      "https://admin-pannel-subsify.vercel.app",
-     "web-store-subsify-p355.vercel.app"
+     "https://web-store-subsify.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
