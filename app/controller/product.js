@@ -41,7 +41,7 @@ export const createProduct = async (req, res) => {
     if (!store) {
       return handleResponse(res, 400, "Admin doesn't own a store");
     }
-    const fileUrls = req.fileUrls;
+    const fileUrls = req.fileUrls||[];
 
     // console.log(req.fileUrl);
     const existingProduct = await Product.findOne({ name });
@@ -184,7 +184,7 @@ export const updateProductById = async (req, res) => {
       max_order_limit,
     } = req.body;
 
-    const newImages = req.fileUrls || null;
+    const newImages = req.fileUrls || [];
     const product = await Product.findById(id);
     if (!product) {
       return handleResponse(res, 404, "Product not found");
