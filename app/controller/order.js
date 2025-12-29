@@ -79,7 +79,7 @@ export const placeOrder = async (req, res) => {
       .join("");
 
     const mailOptions = {
-      from: `"no-reply"<${process.env.EMAIL_USER}>`,
+      from: `"no-reply"<${process.env.MAIL_USER}>`,
       to: user.email,
       subject: "Order Placed Succesfully",
       html: `
@@ -270,7 +270,7 @@ export const assignDeliveryPartner = async (req, res) => {
     })
         await transporter.sendMail({
 
-           from: `"Subsify" <${process.env.EMAIL_USER}>`,
+           from: `"Subsify" <${process.env.MAIL_USER}>`,
           to: user.email,
           subject: "Delivery Partner Assigned 🚚",
           html: htmlTemplate,

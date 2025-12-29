@@ -176,7 +176,7 @@ const htmlTemplate = await renderTemplate("orderPlaced.ejs", {
 });
 
 const mailOptions = {
-  from: `"Subsify" <${process.env.EMAIL_USER}>`,
+  from: `"Subsify" <${process.env.MAIL_USER}>`,
   to: user.email,
   subject: "Order Placed Successfully 📦",
   html: htmlTemplate,

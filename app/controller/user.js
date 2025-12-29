@@ -183,7 +183,7 @@ export const registerUser = async (req, res) => {
     });
 
     const mailOptions = {
-      from: `"Subsify"<${process.env.EMAIL_USER}>`,
+      from: `"Subsify"<${process.env.MAIL_USER}>`,
       to: result.email,
       subject: "Welcome to Subsify 🎉",
       html: htmlTemplate,
