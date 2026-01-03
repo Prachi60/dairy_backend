@@ -24,8 +24,9 @@ export const createOrder = async (req, res) => {
         details: error.details.map((error) => error.message),
       });
     }
- const user = req.id;
-    const { amount  } = value;
+const user =req.id;
+
+    const { amount, } = value;
 
     const options = {
       amount: amount * 100,
@@ -88,6 +89,7 @@ export const verifyPayment = async (req, res) => {
       finalAmount,
       subscriptionId,
     } = req.body;
+console.log(" req.body====",req.body);
 
     const sign = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
