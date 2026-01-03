@@ -24,8 +24,8 @@ export const createOrder = async (req, res) => {
         details: error.details.map((error) => error.message),
       });
     }
-
-    const { amount, user } = value;
+ const user = req.id;
+    const { amount  } = value;
 
     const options = {
       amount: amount * 100,
