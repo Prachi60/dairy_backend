@@ -89,7 +89,7 @@ export const verifyPayment = async (req, res) => {
       finalAmount,
       subscriptionId,
     } = req.body;
-console.log(" req.body====",req.body);
+// console.log(" req.body====",req.body);
 
     const sign = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
@@ -163,34 +163,34 @@ console.log(" req.body====",req.body);
     //     <p>Thanks for ordering with <strong>Subsify !!</strong></p>
     //   `,
     // };
-const htmlTemplate = await renderTemplate("orderPlaced.ejs", {
-  name: user.name || "User",
-  orderId: paidOrder._id,
-  totalAmount: paidOrder.totalAmount,
+// const htmlTemplate = await renderTemplate("orderPlaced.ejs", {
+//   name: user.name || "User",
+//   orderId: paidOrder._id,
+//   totalAmount: paidOrder.totalAmount,
 
-  items: orderedItems.map((item) => ({
-    name: item.product.name,
-    quantity: item.quantity,
-    price: item.price,
-  })),
+//   items: orderedItems.map((item) => ({
+//     name: item.product.name,
+//     quantity: item.quantity,
+//     price: item.price,
+//   })),
 
-  orderLink: `${process.env.FRONTEND_URL}/orders/${paidOrder._id}`,
-});
+//   orderLink: `${process.env.FRONTEND_URL}/orders/${paidOrder._id}`,
+// });
 
-const mailOptions = {
-  from: `"Subsify" <${process.env.MAIL_USER}>`,
-  to: user.email,
-  subject: "Order Placed Successfully 📦",
-  html: htmlTemplate,
-};
+// const mailOptions = {
+//   from: `"Subsify" <${process.env.MAIL_USER}>`,
+//   to: user.email,
+//   subject: "Order Placed Successfully 📦",
+//   html: htmlTemplate,
+// };
 
-    let emailSent = false;
-    try {
-      await transporter.sendMail(mailOptions);
-      emailSent = true;
-    } catch (mailError) {
-      console.error("Failure in sending mail:", mailError.message);
-    }
+//     let emailSent = false;
+//     try {
+//       await transporter.sendMail(mailOptions);
+//       emailSent = true;
+//     } catch (mailError) {
+//       console.error("Failure in sending mail:", mailError.message);
+//     }
     const finalItems = await OrderItem.find({ order: paidOrder._id })
       .populate("product", "name price")
       .lean();
