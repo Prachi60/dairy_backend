@@ -117,13 +117,13 @@ import { fileURLToPath } from "url";
 //   }
 // };
 
-const renderTemplate = async (templateName, data) => {
-  const filePath = path.join(__dirname, "..", "templates", templateName);
+// const renderTemplate = async (templateName, data) => {
+//   const filePath = path.join(__dirname, "..", "templates", templateName);
 
-  // console.log("Email template path:", filePath);
+//   // console.log("Email template path:", filePath);
 
-  return await ejs.renderFile(filePath, data);
-};
+//   return await ejs.renderFile(filePath, data);
+// };
 
 export const registerUser = async (req, res) => {
   try {
@@ -176,36 +176,34 @@ export const registerUser = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    const htmlTemplate = await renderTemplate("welcome.ejs", {
-      name: result.name,
-      email: result.email,
-      contact_number: result.contact_number,
-    });
+    // const htmlTemplate = await renderTemplate("welcome.ejs", {
+    //   name: result.name,
+    //   email: result.email,
+    //   contact_number: result.contact_number,
+    // });
 
-    const mailOptions = {
-      from: `"Subsify"<${process.env.MAIL_USER}>`,
-      to: result.email,
-      subject: "Welcome to Subsify 🎉",
-      html: htmlTemplate,
-    };
+    // const mailOptions = {
+    //   from: `"Subsify"<${process.env.MAIL_USER}>`,
+    //   to: result.email,
+    //   subject: "Welcome to Subsify 🎉",
+    //   html: htmlTemplate,
+    // };
 
-    let emailSent = false;
+    // let emailSent = false;
 
-    try {
-      await transporter.sendMail(mailOptions);
-      emailSent = true;
-    } catch (mailError) {
-      console.error("Email sending failed:", mailError.message);
-    }
+    // try {
+    //   await transporter.sendMail(mailOptions);
+    //   emailSent = true;
+    // } catch (mailError) {
+    //   console.error("Email sending failed:", mailError.message);
+    // }
 
     return handleResponse(res, 201, "User registered successfully", {
       name: result.name,
       role: result.role,
       email: result.email,
       token,
-      message: emailSent
-        ? "A confirmation email has been sent to your email"
-        : "User registered, but email could not be sent",
+      
     });
   } catch (error) {
     console.error("Register error:", error.message);

@@ -78,43 +78,41 @@ export const placeOrder = async (req, res) => {
       )
       .join("");
 
-    const mailOptions = {
-      from: `"no-reply"<${process.env.MAIL_USER}>`,
-      to: user.email,
-      subject: "Order Placed Succesfully",
-      html: `
-          <h3>Hello ${user.name || "user"} </h3>
-          <span> Your Order has been successfully placed 
-          <p> Thanks for ordering with<Strong> Subsify !! </strong></p>
-          <p><strong>Order ID:</strong> ${order._id}</p>
-    <p><strong>Total Amount:</strong> ₹${totalAmount}</p>
+    // const mailOptions = {
+    //   from: `"no-reply"<${process.env.MAIL_USER}>`,
+    //   to: user.email,
+    //   subject: "Order Placed Succesfully",
+    //   html: `
+    //       <h3>Hello ${user.name || "user"} </h3>
+    //       <span> Your Order has been successfully placed 
+    //       <p> Thanks for ordering with<Strong> Subsify !! </strong></p>
+    //       <p><strong>Order ID:</strong> ${order._id}</p>
+    // <p><strong>Total Amount:</strong> ₹${totalAmount}</p>
 
-    <p><strong>Your Products:</strong></p>
-    <ul>
-      ${productList}
-    </ul>
+    // <p><strong>Your Products:</strong></p>
+    // <ul>
+    //   ${productList}
+    // </ul>
 
-    <p>We will notify you once your order is out for delivery </p>
+    // <p>We will notify you once your order is out for delivery </p>
 
          
     
-          `,
-    };
-    let emailSent = false;
-    try {
-      await transporter.sendMail(mailOptions);
-      emailSent = true;
-    } catch (mailError) {
-      console.error("Failure in sending mail", mailError.message);
-    }
+    //       `,
+    // };
+    // let emailSent = false;
+    // try {
+    //   await transporter.sendMail(mailOptions);
+    //   emailSent = true;
+    // } catch (mailError) {
+    //   console.error("Failure in sending mail", mailError.message);
+    // }
 
     return handleResponse(res, 201, "Order Placed Successfully", {
       OrderId: order._id,
       totalAmount,
       products: orderedItems,
-      message: emailSent
-        ? "A confirmation email has been sent to your Gmail"
-        : "Order Placed, but email could not be sent",
+      
     });
   } catch (error) {
     console.error("Error in Adding the item to the cart", error.message);
